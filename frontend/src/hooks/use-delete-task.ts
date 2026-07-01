@@ -2,10 +2,7 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
-import {
-  deleteTask,
-  tasksKey,
-} from "@/lib/tasks"
+import { deleteTask, tasksKey } from "@/lib/tasks"
 
 export function useDeleteTask() {
   const queryClient = useQueryClient()

@@ -8,7 +8,9 @@ export class TasksService {
   constructor(private readonly prisma: PrismaService) {}
 
   create(userId: string, createTaskDto: CreateTaskDto) {
-    return this.prisma.task.create({ data: { ...createTaskDto, userId } });
+    return this.prisma.task.create({
+      data: { description: '', ...createTaskDto, userId },
+    });
   }
 
   findAll(userId: string) {

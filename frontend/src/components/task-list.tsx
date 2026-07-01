@@ -20,9 +20,10 @@ type Filter = TaskStatus | "ALL"
 
 const FILTER_COLOR: Record<Filter, string> = {
   ALL: "",
-  TODO: "data-pressed:bg-slate-500/20 data-pressed:text-slate-400",
-  IN_PROGRESS: "data-pressed:bg-amber-500/20 data-pressed:text-amber-400",
-  DONE: "data-pressed:bg-green-500/20 data-pressed:text-green-400",
+  TODO: "data-pressed:bg-slate-500/20 data-pressed:text-slate-700 dark:data-pressed:text-slate-400",
+  IN_PROGRESS:
+    "data-pressed:bg-amber-500/20 data-pressed:text-amber-700 dark:data-pressed:text-amber-400",
+  DONE: "data-pressed:bg-green-500/20 data-pressed:text-green-700 dark:data-pressed:text-green-400",
 }
 
 export function TaskList() {

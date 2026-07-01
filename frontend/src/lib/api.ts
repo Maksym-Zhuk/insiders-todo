@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080"
 
 export class AuthError extends Error {}
 
@@ -20,6 +20,7 @@ export async function apiFetch<T>(
     const refreshed = await request("/auth/refresh", { method: "POST" })
     if (!refreshed.ok) throw new AuthError("Not authenticated")
     res = await request(path, opts)
+    if (res.status === 401) throw new AuthError("Not authenticated")
   }
 
   if (!res.ok) {

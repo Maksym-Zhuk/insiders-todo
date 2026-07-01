@@ -27,8 +27,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const { setTheme } = useTheme()
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    const parsed = stored ? JSON.parse(stored) : null
+    let parsed: User | null = null
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      parsed = stored ? JSON.parse(stored) : null
+    } catch {
+      localStorage.removeItem(STORAGE_KEY)
+    }
     // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration from localStorage on mount
     setUser(parsed)
     setReady(true)
