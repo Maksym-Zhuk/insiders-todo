@@ -1,8 +1,8 @@
-model Todo {
+model Task {
     id          String     @id @default(uuid())
     title       String
     description String
-    status      TodoStatus
+    status      TaskStatus
 
     user   User   @relation(fields: [userId], references: [id])
     userId String
@@ -11,7 +11,7 @@ model Todo {
     updatedAt DateTime @updatedAt
 }
 
-enum TodoStatus {
+enum TaskStatus {
     TODO
     IN_PROGRESS
     DONE
