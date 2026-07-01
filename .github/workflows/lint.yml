@@ -13,6 +13,8 @@ jobs:
             - uses: oven-sh/setup-bun@v2
             - run: bun install --frozen-lockfile
             - run: bunx oxlint
+            - run: bunx prisma generate
+              working-directory: backend
             - run: bunx eslint
               working-directory: backend
             - run: bun run --filter frontend lint
