@@ -15,6 +15,8 @@ jobs:
             - run: bunx oxlint
             - run: bunx prisma generate
               working-directory: backend
+              env:
+                  DATABASE_URL: postgresql://localhost:5432/db
             - run: bunx eslint
               working-directory: backend
             - run: bun run --filter frontend lint
