@@ -1,18 +1,18 @@
 name: Lint
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+    push:
+        branches: [main]
+    pull_request:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install --frozen-lockfile
-      - run: bunx oxlint
-      - run: bunx eslint "{src,apps,libs,test}/**/*.ts"
-        working-directory: backend
-      - run: bun run --filter frontend lint
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: oven-sh/setup-bun@v2
+            - run: bun install --frozen-lockfile
+            - run: bunx oxlint
+            - run: bunx eslint
+              working-directory: backend
+            - run: bun run --filter frontend lint
