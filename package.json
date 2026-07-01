@@ -1,0 +1,10 @@
+{
+  "name": "insiders-todo",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev:backend": "bun --filter backend start:dev",
+    "dev:frontend": "bun --filter frontend dev",
+    "dev": "bun run --parallel dev:backend dev:frontend"
+  }
+}
