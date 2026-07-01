@@ -1,0 +1,18 @@
+model Todo {
+    id          String     @id @default(uuid())
+    title       String
+    description String
+    status      TodoStatus
+
+    user   User   @relation(fields: [userId], references: [id])
+    userId String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+enum TodoStatus {
+    TODO
+    IN_PROGRESS
+    DONE
+}

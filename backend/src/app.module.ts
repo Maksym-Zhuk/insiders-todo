@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { PrismaService } from './prisma/prisma.service';
 // anesis:top-imports
 
 @Module({
@@ -6,6 +7,6 @@ import { Module } from '@nestjs/common';
     // anesis:module-imports
   ],
   controllers: [],
-  providers: [],
+  providers: [PrismaService],
 })
 export class AppModule {}
