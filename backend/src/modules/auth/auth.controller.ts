@@ -38,8 +38,8 @@ export class AuthController {
   @Post('logout')
   async logout(@CurrentUser('userId') userId: string, @Res() res: Response) {
     await this.authService.logout(userId);
-    res.clearCookie('accessToken');
-    res.clearCookie('refreshToken');
+    res.clearCookie('accessToken', { path: '/' });
+    res.clearCookie('refreshToken', { path: '/auth/refresh' });
     res.status(200).send({ message: 'Logged out successfully' });
   }
 

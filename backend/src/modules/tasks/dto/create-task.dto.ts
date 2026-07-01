@@ -1,10 +1,5 @@
 import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
-
-enum TaskStatus {
-  PENDING = 'pending',
-  IN_PROGRESS = 'in_progress',
-  COMPLETED = 'completed',
-}
+import { TaskStatus } from 'src/generated/prisma/enums';
 
 export class CreateTaskDto {
   @IsString()
